@@ -13,13 +13,15 @@ Output:
  --------------------------- */
 
 function areaRectangle(length, width) {
-  return "No code yet";
+ var total=length*width;
+ var areaRectangle=total;
+  return "total";
 }
 console.log("Rectangle Area Calculator:");
 /* Uncomment the following to check */
-  // console.log(areaRectangle(2, 7));
-  // console.log(areaRectangle(20, 56.5));
-  // console.log(areaRectangle(50, 34));
+  console.log(areaRectangle(2, 7));
+   console.log(areaRectangle(20, 56.5));
+   console.log(areaRectangle(50, 34));
 
 
 
@@ -44,13 +46,16 @@ HINT: Use substring()
  --------------------------- */
 
 function rotate_string(text) {
+  for(i=0;i<text.length;i++){
+    text=text[text.length-1]+text.substring(0,text.length-1)
+  }
   console.log(text);
 }
 
 console.log("Rotate String:");
 /* Uncomment the following to check */
-  //rotate_string("cat");
-  //rotate_string("voracious")
+  rotate_string("cat");
+  rotate_string("voracious")
 
 
 
