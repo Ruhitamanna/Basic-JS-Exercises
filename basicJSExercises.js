@@ -76,14 +76,24 @@ HINT: Use split() and substring()
 
  --------------------------- */
 
-function protect_email(email) {
-  return "protected email";
+function protect_email=function(email) {
+var splitted;
+var avg;
+var part1;
+var part2;
+splitted=email.split("@");
+part1=splitted[0];
+avg=part1.length/2;
+  part1 = part1.substring(0, (part1.length - avg));
+    part2 = splitted[1];
+    return part1 + "...@" + part2;
+
 }
 
 console.log("Protected email:");
 /* Uncomment the following to check */
-  //console.log(protect_email("harry_potter@gmail.com"));
-  //console.log(protect_email("sarah.connor@gmail.com"));
+  console.log(protect_email("harry_potter@gmail.com"));
+  console.log(protect_email("sarah.connor@gmail.com"));
 
 
 
@@ -103,12 +113,12 @@ HINT: Use join(), split() and sort() functions
  --------------------------- */
 
 function alphabetic_order(word) {
-  return "rearranged word";
+  return word.split('').sort().join('');
 }
 
 console.log("Alphabetic Order:");
 /* Uncomment the following to check */
-  // console.log(alphabetic_order("webmaster"));
+  console.log(alphabetic_order("webmaster"));
 
 
 
@@ -128,12 +138,24 @@ Output:
  --------------------------- */
 
 function remove_duplicates(arr) {
+  console.log("Finding duplicate values:");
+var sorted_arr = arr.slice().sort();                                                                                                         
+var results = [];
+var dup=[];
+for (var i = 0; i < arr.length - 1; i++) {
+    if (sorted_arr[i + 1] == sorted_arr[i]) {
+        results.push(sorted_arr[i]);
+    }
+}
+console.log(results);
+ dup=(results);
   console.log("Duplicates removed from array");
+  delete dup;
 }
 
 console.log("Remove Duplicate Values:");
 /* Uncomment the following to check */
-  // remove_duplicates([3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]);
+  remove_duplicates([3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]);
 
 
 /* ---------------------------
@@ -152,14 +174,21 @@ Output:
 
 function dash_in_even(number) {
   console.log("even numbers separated by dashes");
+var s = number.toString().split("");
+    for (var i =0; i < s.length; i++) {
+        if(s[i] % 2 === 0 && s[i + 1] % 2 === 0) {
+            s[i] += "-";
+        }
+    }   
+    return (s.join(""));
 }
 
 console.log("Dash between Even Numbers:");
 /* Uncomment the following to check */
-  // dash_in_even(100);
-  // dash_in_even(1356);
-  // dash_in_even(246824);
-  // dash_in_even(1324567824);
+  dash_in_even(100);
+  dash_in_even(1356);
+  dash_in_even(246824);
+  dash_in_even(1324567824);
 
 
 /* ---------------------------
@@ -174,12 +203,25 @@ HINT: Use Math.ceil() and Math.random()
 
  --------------------------- */
 
-function guessing_game(guess) {
+function guessing_game() {
   // Get a random integer from 1 to 10 inclusive
-  console.log("matched or unmatched?");
+  
+var num = parseInt(Math.random() * 10 + 1);
+    var userGuess = prompt("input a guess number between 1 to 10");
+console.log("matched or unmatched?");
+if(isNaN(userGuess)) {
+      alert("Please, write a number");
+    } else {
+        if(num == userGuess){
+            alert("Good Work");
+        } else {
+            alert("Not matched. Number was " + num);
+        }
+    }
 }
 
-console.log("Guessing Game:");
+
+//console.log("Guessing Game:");
 /* Uncomment the following to check */
   // var guess = prompt('Guess the number between 1 and 10 inclusive');
   // console.log("User guessed: "+ guess);
